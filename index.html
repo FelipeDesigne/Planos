@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacotes de Design Gráfico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbifivdQapxM4L/1ZsY+C4C5mJHs5R7/o+CJVW2T/nFlwkv1qB+BpfO4wS+VXPqYq8w+J6blw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 90%; 
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .plan-card {
+            background-color: #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .plan-card.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .plan-card p {
+            margin-bottom: 10px;
+        }
+
+        .plan-card strong {
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px; /* Reduzido o padding para botões mais curtos */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px; 
+            width: fit-content; /* Ajusta a largura do botão para o conteúdo */
+            margin: 0 auto; /* Centraliza o botão horizontalmente */
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn i {
+            font-size: 1.1rem; 
+        }
+
+        /* Estilos para o botão da assinatura mensal */
+        .assinatura-mensal {
+            margin-bottom: 40px;
+        }
+
+        .assinatura-mensal h2 {
+            font-size: 2rem; 
+        }
+
+        .assinatura-mensal .precos { 
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .assinatura-mensal ul li {
+            display: list-item; 
+            margin-bottom: 5px; 
+        }
+
+        /* Estilos para a seção de economia */
+        .economia {
+            margin-top: 40px;
+        }
+
+        .economia h2 {
+            margin-bottom: 20px;
+        }
+
+        .economia p {
+            margin-bottom: 10px;
+        }
+
+        .economia .btn {
+            margin-top: 30px; /* Aumentado a margem superior do botão */
+            width: fit-content; 
+            margin: 0 auto; 
+        }
+
+        /* Estilos para o gráfico */
+        .chart-container {
+            width: 100%;
+            height: 200px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chart-bar {
+            width: 50%;
+            height: 100%;
+            background-color: #007bff;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .chart-bar::before {
+            content: 'R$ 1600';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+        }
+
+        .chart-bar::after {
+            content: 'R$ 1350';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const planCards = document.querySelectorAll('.plan-card');
+            planCards.forEach(planCard => {
+                const rect = planCard.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    planCard.classList.add('active');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Pacotes de Design Gráfico e Assinatura Mensal ✨</h1>
+
+        <div class="assinatura-mensal">
+            <h2>Assinatura Mensal - Transforme suas Ideias em Arte!</h2>
+            <p class="precos"><strong>A partir de R$ 500/mês</strong></p>
+            <p><strong>Benefícios da Assinatura Mensal:</strong></p>
+            <ul>
+                <li><strong>Básico:</strong> A partir de R$ 500/mês - <strong>10 artes</strong></li>
+                <li><strong>Intermediário:</strong> A partir de R$ 1000/mês - <strong>20 artes</strong></li>
+                <li><strong>Completo:</strong> A partir de R$ 1350/mês - <strong>30 artes</strong></li>
+            </ul>
+
+            <a href="https://wa.me/5514981181568?text=Oi%2C%20quero%20saber%20mais%20sobre%20a%20Assinatura%20Mensal" target="_blank" class="btn">
+                <i class="fa-brands fa-whatsapp"></i> Contratar Assinatura Mensal
+            </a>
+        </div>
+
+        <h2>Pacotes Únicos</h2>
+
+        <div class="plan-card">
+            <h2>Pacote Básico Único</h2>
+            <p><strong>💰 R$ 600</strong></p>
+            <p>🖼️ 10 artes</p>
+            <p>🔁 Até 2 revisões/arte</p>
+            <p>🕒 Entrega: Até 7 dias úteis</p>
+            <p>🚀 Criação Rápida (Express): +R$ 100 (metade do prazo)</p>
+            <a href="https://wa.me/5514981181568?text=Oi%2C%20quero%20contratar%20o%20plano%20B%C3%A1sico" target="_blank" class="btn">
+                <i class="fa-brands fa-whatsapp"></i> Contratar Plano Básico
+            </a>
+        </div>
+
+        <div class="plan-card">
+            <h2>Pacote Intermediário Único</h2>
+            <p><strong>💰 R$ 1200</strong></p>
+            <p>🖼️ 20 artes</p>
+            <p>🔁 Até 3 revisões/arte</p>
+            <p>🕒 Entrega: Até 15 dias úteis</p>
+            <p>🚀 Criação Rápida (Express): +R$ 100 (metade do prazo)</p>
+            <a href="https://wa.me/5514981181568?text=Oi%2C%20quero%20contratar%20o%20plano%20Intermedi%C3%A1rio" target="_blank" class="btn">
+                <i class="fa-brands fa-whatsapp"></i> Contratar Plano Intermediário
+            </a>
+        </div>
+
+        <div class="plan-card">
+            <h2>Pacote Completo Único</h2>
+            <p><strong>💰 R$ 1600</strong></p>
+            <p>🖼️ 30 artes</p>
+            <p>🔁 Até 4 revisões/arte</p>
+            <p>🕒 Entrega: Até 30 dias úteis</p>
+            <p>🚀 Criação Rápida (Express): +R$ 200 (metade do prazo)</p>
+            <a href="https://wa.me/5514981181568?text=Oi%2C%20quero%20contratar%20o%20plano%20Completo" target="_blank" class="btn">
+                <i class="fa-brands fa-whatsapp"></i> Contratar Plano Completo
+            </a>
+        </div>
+
+        <div class="economia">
+            <h2>Economize com a Assinatura Mensal!</h2>
+            <p>Compare os preços:</p>
+            <ul>
+                <li><strong>Básico:</strong> R$ 500/mês (assinatura) vs. R$ 600 (único)</li>
+                <li><strong>Intermediário:</strong> R$ 1000/mês (assinatura) vs. R$ 1200 (único)</li>
+                <li><strong>Completo:</strong> R$ 1350/mês (assinatura) vs. R$ 1600 (único)</li>
+            </ul>
+            <p>Ao optar pela assinatura mensal, você economiza <strong>R$ 250</strong> em relação ao Pacote Completo único.</p>
+            <div class="chart-container">
+                <div class="chart-bar"></div>
+            </div>
+            <a href="https://wa.me/5514981181568?text=Oi%2C%20quero%20saber%20mais%20sobre%20a%20Assinatura%20Mensal" target="_blank" class="btn">
+                <i class="fa-brands fa-whatsapp"></i> Contratar Assinatura Mensal
+            </a>
+        </div>
+    </div>
+</body>
+</html>
